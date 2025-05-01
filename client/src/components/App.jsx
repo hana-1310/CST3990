@@ -2,11 +2,11 @@ import { Fragment } from "react"
 import Navbar from "./Navbar"
 import SignUpForm from "./Signup"
 import SignInForm from "./Signin"
-import LandingPage from "./Home"
+import LandingPage from "./LandingPage"
 import { isUserLoggedIn } from "../contexts/UserLoggedIn"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import {BrowserRouter, Router, Switch} from "react-router-dom"
+import { Routes, Route} from "react-router-dom"
 
 export default function App() {
     const [userContext, setUserContext] = useState({username: ''})
@@ -27,8 +27,13 @@ export default function App() {
     return (
         <isUserLoggedIn.Provider value={{userContext, setUserContext}}>
             <Navbar />
-            {userContext.username ? <LandingPage /> : <SignInForm />}
+            <Routes>
+                <Route path="/" element={<LandingPage/>}/>
+                <Route path="/login" element={<SignInForm/>}/>
+                <Route path="/register" element={<SignUpForm/>}/>
+            </Routes>
+            {/* {userContext.username ? <LandingPage /> : <SignInForm />} */}
             {/* <SignUpForm /> */}
-        </isUserLoggedIn.Provider>
+        </isUserLoggedIn.Provider>        
     )
 }

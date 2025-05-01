@@ -1,11 +1,13 @@
 import axios from "axios"
 import { useState, useContext } from "react"
 import { isUserLoggedIn } from "../contexts/UserLoggedIn"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function SignInForm() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const {userContext, setUserContext} = useContext(isUserLoggedIn)
+    const navigate = useNavigate()
 
     async function handleClick(event) {
         event.preventDefault
@@ -17,6 +19,7 @@ export default function SignInForm() {
             if (response.status === 200) {
                 setUserContext({username: response.data.username})
                 console.log(response.data.message)
+                navigate('/')
             }
         } catch (err) {
             console.error(err.response.data.message)
@@ -45,6 +48,7 @@ export default function SignInForm() {
                 />
             </label>
             <button type="submit">Login</button>
+            <Link to="/register">Create new account</Link>
         </form>
     )
 }

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react"
 import { isUserLoggedIn } from "../contexts/UserLoggedIn"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 export default function Navbar() {
     const {userContext, setUserContext} = useContext(isUserLoggedIn)
@@ -22,10 +23,11 @@ export default function Navbar() {
         <header>
             <nav>
                 <ul>
-                    <button>HOME</button>
+                    <Link to="/">HOME</Link>
+
                     
                     <button>PROFILE</button>
-                    {!userContext.username ? <button>SIGN IN</button> : <button onClick={logoutClick}>LOGOUT</button>}
+                    {!userContext.username ? <Link to="/login">SIGN IN</Link> : <Link onClick={logoutClick} to="/">LOGOUT</Link>}
                     <li>{userContext.username}</li>
                     
                 </ul>
