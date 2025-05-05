@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import SignUpForm from "./Signup"
 import SignInForm from "./Signin"
 import LandingPage from "./LandingPage"
+import Diagnosis from "./DiagnosisInterface"
 import { isUserLoggedIn } from "../contexts/UserLoggedIn"
 import { useState, useEffect } from "react"
 import axios from "axios"
@@ -31,6 +32,7 @@ export default function App() {
                 <Route path="/" element={<LandingPage/>}/>
                 <Route path="/login" element={<SignInForm/>}/>
                 <Route path="/register" element={<SignUpForm/>}/>
+                <Route path="/diagnosis" element={<Diagnosis/>}/>
             </Routes>
             {/* {userContext.username ? <LandingPage /> : <SignInForm />} */}
             {/* <SignUpForm /> */}

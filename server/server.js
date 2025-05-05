@@ -1,5 +1,8 @@
 /**npm run devStart runs all the code in server.js then waits for any changes */
 /**create express server */
+const {ConnectDatabase, databaserouter, verifyToken} = require('./routes/database.js')
+const {imageRoute} = require('./routes/extract-from-image.js')
+
 const express = require("express")
 const bodyParser = require('body-parser')
 
@@ -31,18 +34,15 @@ app.use(bodyParser.json())
  * npm install axios on client
 */
 app.use(cors(corsOptions))
-app.get('/', (req, res) => {
-    console.log('Hi')
-    res.json({fruits: ["apple", "orange"] })
-})
 
-const {ConnectDatabase, databaserouter, verifyToken} = require('./database.js')
+
 
 
 const vitaGuideDB = new ConnectDatabase('mongodb+srv://root:1234@ckd-app.rktvud5.mongodb.net/vitaguide?retryWrites=true&w=majority&appName=ckd-app')
 
 
 app.use('/database', databaserouter)
+app.use('/extract-from-image', imageRoute)
 
 
 app.get('/autoLogin', (req, res) => {

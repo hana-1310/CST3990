@@ -1,4 +1,39 @@
+import { Link } from "react-router-dom"
+import { useState, useEffect, useContext } from "react"
+import { isUserLoggedIn } from "../contexts/UserLoggedIn"
+
 export default function LandingPage() {
+    const {userContext, setUserContext} = useContext(isUserLoggedIn)
+    const [uploadImage, setUploadImage] = useState(null)
+    const [preview, setPreviewURL] = useState(null)
+    function fileChange(event) {
+        const file = event.target.files[0]
+
+        if (file && file.type === 'application/pdf' || 
+            file && file.type === 'application/png') {
+                setUploadImage(file)
+        } else {
+            alert('Please slect a valid file')
+        }
+    }
+    function handleSubmit(event) {
+        event.preventDefault()
+        // const formData = new FormData()
+        // formData.append('image', )
+        
+
+    }
+
+    useEffect(() => {
+        if (uploadImage) {
+            const objectUrl = URL.createObjectURL(uploadImage)
+            setPreviewURL(objectUrl)
+
+            return () => URL.revokeObjectURL(objectUrl)
+            
+        }
+    }, [uploadImage])
+
     return (
         <div>
             <div>
@@ -14,7 +49,26 @@ export default function LandingPage() {
                 </p>
             </div>
             <div>
-                <button>Diagnosis</button>
+                <form onSubmit={handleSubmit}>
+                    {/* {userContext.username ? 
+                    <input 
+                        type="file" 
+                        onChange={fileChange}
+                    /> :
+                    null}
+                    <Link 
+                    to='/diagnosis' 
+                    state={{uploadImage: preview}}
+                    onClick={(e)=> {
+                        if (!userContext.username) {
+                            e.preventDefault()
+                            alert('Please sign in to trigger your diagnosis')
+                        }
+                    }}>Upload</Link> */}
+                    <input type="file" onChange={fileChange} />
+                    <Link to='/diagnosis' state={{uploadImage: preview}}>Upload</Link>
+
+                </form>                
             </div>
         </div>
     )
