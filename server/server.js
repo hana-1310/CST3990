@@ -42,7 +42,7 @@ const vitaGuideDB = new ConnectDatabase('mongodb+srv://root:1234@ckd-app.rktvud5
 
 
 app.use('/database', databaserouter)
-app.use('/extract-from-image', imageRoute)
+app.use('/extract', imageRoute)
 
 
 app.get('/autoLogin', (req, res) => {

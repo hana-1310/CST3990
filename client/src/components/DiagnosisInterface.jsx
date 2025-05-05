@@ -3,7 +3,7 @@ import { Fragment } from "react"
 import axios from "axios"
 export default function Diagnosis(props) {
     const location = useLocation()
-    const {uploadImage} = location.state 
+    const {uploadFile} = location.state 
     // async function handleClick() {
     //     const response = axios.post('http://localhost:8080/get-diagnosis')
     // }
@@ -11,7 +11,7 @@ export default function Diagnosis(props) {
         <Fragment>
             <div>
                 <iframe
-                    src={uploadImage}
+                    src={uploadFile}
                     width="40%"
                     height="600px"
                     style={{ border: "1px solid #ccc" }}

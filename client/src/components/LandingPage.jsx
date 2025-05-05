@@ -1,38 +1,53 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useState, useEffect, useContext } from "react"
 import { isUserLoggedIn } from "../contexts/UserLoggedIn"
+import axios from "axios"
 
 export default function LandingPage() {
     const {userContext, setUserContext} = useContext(isUserLoggedIn)
-    const [uploadImage, setUploadImage] = useState(null)
+    const [uploadFile, setUploadFile] = useState(null)
     const [preview, setPreviewURL] = useState(null)
+    const navigate = useNavigate()
     function fileChange(event) {
         const file = event.target.files[0]
 
         if (file && file.type === 'application/pdf' || 
-            file && file.type === 'application/png') {
-                setUploadImage(file)
+            file && file.type === 'image/png') {
+                setUploadFile(file)
         } else {
             alert('Please slect a valid file')
         }
     }
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
-        // const formData = new FormData()
-        // formData.append('image', )
+        const formData = new FormData()
+        formData.append('pdf', uploadFile)
+        console.log(formData)
+        
+        try {
+            const response = await axios.post('http://localhost:8080/extract/pdf', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }})
+            if (response.status === 200) {
+                console.log(response.data.extracted)
+                navigate('/diagnosis', {state: {uploadFile: preview}})
+            } 
+        } catch (err) {
+            console.log(err.error)
+        }
+
         
 
     }
 
     useEffect(() => {
-        if (uploadImage) {
-            const objectUrl = URL.createObjectURL(uploadImage)
+        if (uploadFile) {
+            const objectUrl = URL.createObjectURL(uploadFile)
             setPreviewURL(objectUrl)
 
             return () => URL.revokeObjectURL(objectUrl)
             
         }
-    }, [uploadImage])
+    }, [uploadFile])
 
     return (
         <div>
@@ -58,15 +73,15 @@ export default function LandingPage() {
                     null}
                     <Link 
                     to='/diagnosis' 
-                    state={{uploadImage: preview}}
+                    state={{uploadFile: preview}}
                     onClick={(e)=> {
                         if (!userContext.username) {
                             e.preventDefault()
                             alert('Please sign in to trigger your diagnosis')
                         }
                     }}>Upload</Link> */}
-                    <input type="file" onChange={fileChange} />
-                    <Link to='/diagnosis' state={{uploadImage: preview}}>Upload</Link>
+                    <input type="file" name="pdf" onChange={fileChange} />
+                    <button type="submit">Submit</button>
 
                 </form>                
             </div>
