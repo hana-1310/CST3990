@@ -17,13 +17,15 @@ export default function App() {
     }, [])
 
     async function autoLogin() {
-        const response = await axios.get('http://localhost:8080/autoLogin')
-
-        if (response.status === 200) {
+        try {
+            const response = await axios.get('http://localhost:8080/autoLogin')
             console.log('User is logged in')
             setUserContext({username: response.data.username})
+        } catch (err) {
+            console.log(err.response.data.message)
         }
     }
+
 
     return (
         <isUserLoggedIn.Provider value={{userContext, setUserContext}}>

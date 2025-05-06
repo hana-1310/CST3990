@@ -29,7 +29,8 @@ export default function LandingPage() {
                 headers: { 'Content-Type': 'multipart/form-data' }})
             if (response.status === 200) {
                 console.log(response.data.extracted)
-                navigate('/diagnosis', {state: {uploadFile: preview}})
+                const data = response.data.extracted
+                navigate('/diagnosis', {state: {uploadFile: preview, extractedValues: data }})
             } 
         } catch (err) {
             console.log(err.error)

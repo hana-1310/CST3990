@@ -19,8 +19,10 @@ const userSchema = new mongoose.Schema({
     age: Number,
     password: String,
     BMI: Number,
-    Itching: Boolean,
-    MuscleCramps: Boolean
+    height: Number,
+    weight: Number,
+    itching: Number,
+    cramps: Number
 })
 
 const UserModel = mongoose.model('User', userSchema)
@@ -28,14 +30,14 @@ const UserModel = mongoose.model('User', userSchema)
 databaserouter.post('/register', async (req, res) => {
     try {
         console.log(req.body)
-        const { username, age, password, BMI } = req.body
+        const { username, age, password, BMI, height, weight, cramps, itching } = req.body
         const existingUser = await UserModel.find({username: username})
 
         if (existingUser.length > 0) {
             console.log("SERVER: Username is taken")
             return res.status(500).json({message: "Username is taken"})
         } else {
-            const newUser = UserModel({ username, age, password, BMI })
+            const newUser = UserModel({ username, age, password, BMI, height, weight, cramps, itching })
             await newUser.save()
             console.log("SERVER: User creation was a success")
         }
@@ -56,7 +58,8 @@ databaserouter.post('/login', async (req, res) => {
             console.log('SERVER: Invalid credentials')
             return res.status(500).json({message: 'Invalid credentials. Try again'})
         } else {
-            const authToken = jsonwebtoken.sign({username, password}, 'DUMMYKEY')
+            const authToken = jsonwebtoken.sign({user: username}, 'DUMMYKEY')
+            console.log(authToken)
             res.cookie('authToken', authToken, {
                 path: '/',
                 maxAge: 24 * 60 * 60 * 1000,
@@ -65,13 +68,21 @@ databaserouter.post('/login', async (req, res) => {
 
             console.log('SERVER: User logged in')
             res.status(200).json({message: 'User logged in', 
-                                    username: username})
+                                    username: username, auth: authToken})
         }
         
     } catch (err) {
         res.status(500).json({error: err})
     }
     
+})
+
+databaserouter.get('/profile', async (req, res) => {
+    const user = req.query.username
+    const userData = await UserModel.findOne({username: user})
+    
+    console.log(userData)
+    res.status(200).json({message: userData})
 })
 
 function verifyToken(token) {

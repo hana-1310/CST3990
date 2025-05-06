@@ -3,10 +3,19 @@ import { Fragment } from "react"
 import axios from "axios"
 export default function Diagnosis(props) {
     const location = useLocation()
-    const {uploadFile} = location.state 
+    const {uploadFile, extractedValues} = location.state 
     // async function handleClick() {
     //     const response = axios.post('http://localhost:8080/get-diagnosis')
     // }
+    function displayExtractedValues() {
+        return Object.entries(extractedValues).map(([key, value]) => (
+            <label htmlFor={key + "-label"} key={key}>
+                {key}
+                <p id={key + "-label"}>{value}</p>
+            </label>
+        ))
+    }
+    
     return (
         <Fragment>
             <div>
@@ -18,11 +27,11 @@ export default function Diagnosis(props) {
                     title="PDF Viewer">
                 </iframe>
                 <div>
-
+                    {displayExtractedValues()}
                 </div>
             </div>
 
-            <Link>Run Diagnosis</Link>
+            <Link>Proceed to Diagnosis</Link>
         </Fragment>
     )
 }

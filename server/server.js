@@ -58,7 +58,6 @@ app.get('/autoLogin', (req, res) => {
         return res.status(401).json({message: 'Invalid token'})
     }
 
-
     return res.status(200).json({username: decoded.username})
 })
 

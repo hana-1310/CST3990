@@ -8,6 +8,8 @@ export default function SignUpForm() {
     const [password, setPassword] = useState('')
     const [weight, setWeight] = useState('')
     const [height, setHeight] = useState('')
+    const [itching, setItching] = useState('')
+    const [cramps, setCramps] = useState('')
 
     const [userExists, setUserExists] = useState(false)
     const [errors, setErrors] = useState({})
@@ -17,19 +19,19 @@ export default function SignUpForm() {
     */
     async function handleClick(event) {
         event.preventDefault()
+        convertToInteger()
         const formErrors = validateForm()
         setErrors(formErrors)
+        console.log(errors)
 
         if (Object.keys(formErrors).length === 0) {
-            const intAge = parseInt(age)
-            const intWeight = parseInt(weight)
-            const intHeight = parseInt(height)
-            const BMI = intWeight / (intHeight**2)
+            
+            const BMI = weight / ((height / 100) ** 2)
 
-            console.log(BMI)
+            console.log('BMI: ', BMI)
             try {
                 const response = await axios.post('http://localhost:8080/database/register', 
-                                                    {username, intAge, password, BMI})
+                                                    {username, age, password, BMI, height, weight, cramps, itching})
                 console.log(response)
             } catch (err) {
                 console.log(err)
@@ -41,7 +43,20 @@ export default function SignUpForm() {
             console.log('Form submission was unsuccessful.')
         }
         
-        
+    }
+
+    function convertToInteger() {
+        const intAge = parseInt(age)
+        const intWeight = parseInt(weight)
+        const intHeight = parseInt(height)
+        const intItchingCount = parseInt(itching)
+        const intCrampsCount = parseInt(cramps)
+
+        setAge(intAge)
+        setWeight(intWeight)
+        setHeight(intHeight)
+        setItching(intItchingCount)
+        setCramps(intCrampsCount)
     }
 
     function validateForm() {
@@ -67,13 +82,27 @@ export default function SignUpForm() {
             errors.height = emptyField
         }
 
+        if (!itching) {
+            errors.itching = emptyField
+        } else if (itching < 0 || itching > 10) {
+            errors.itching = 'Input field: number, min=0, max=10'
+        }
+
+        if (!cramps) {
+            errors.cramps = emptyField
+        } else if (cramps < 0 || cramps > 8) {
+            errors.cramps = 'Input field: number, min=0, max=7'
+        }
+
         if (!password) {
             errors.password = emptyField
-        } else if (!password.length > 8) {
+        } else if (password.length < 8) {
             errors.password = "Password must be at least 8 characters long"
         }
         return errors
     }
+
+    
 
     return (
         <form onSubmit={handleClick}>
@@ -85,7 +114,6 @@ export default function SignUpForm() {
                     value={username} 
                     onChange={(event) => setUsername(event.target.value)}
                 />
-                {userExists && <p>YO</p>}
                 {errors.username && <p>{errors.username}</p>}
             </label>
             
@@ -115,6 +143,24 @@ export default function SignUpForm() {
                     value={height} 
                     onChange={(event) => setHeight(event.target.value)}/>
                 {errors.height && <p>{errors.height}</p>}
+            </label>
+            <label htmlFor="itching-input">How severe is your itching on average?
+                <input 
+                    id="itching-input" 
+                    type="text" 
+                    name="itching" 
+                    value={itching}
+                    onChange={(event) => setItching(event.target.value)}/>
+                {errors.itching && <p>{errors.itching}</p>}
+            </label>
+            <label htmlFor="cramps-input">How many times per week do you experience muscle cramps?
+                <input 
+                    id="cramps-input" 
+                    type="text" 
+                    name="cramps" 
+                    value={cramps}
+                    onChange={(event) => setCramps(event.target.value)}/>
+                {errors.cramps && <p>{errors.cramps}</p>}
             </label>
             <label htmlFor="password-input">Password
                 <input 
