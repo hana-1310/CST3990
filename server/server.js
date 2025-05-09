@@ -5,6 +5,7 @@ const {imageRoute} = require('./routes/extract-from-image.js')
 
 const express = require("express")
 const bodyParser = require('body-parser')
+const session = require('express-session')
 
 
 const cors = require("cors")
@@ -21,6 +22,8 @@ const corsOptions = {
 
 const app = express()
 // Middleware
+
+
 app.use(bodyParser.json())
 /** get server to run and app is listineing on port 3000 for a bunch of requests 
  * second parameter of get is a function that takes request, response
@@ -33,13 +36,21 @@ app.use(bodyParser.json())
  * npm i cors
  * npm install axios on client
 */
+
+
 app.use(cors(corsOptions))
 
-
-
+app.use(session({
+    secret: 'your-secret-key',      
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: false,              // true if using HTTPS
+        maxAge: 1000 * 60 * 60      // 1 hour session lifetime
+    }
+}))
 
 const vitaGuideDB = new ConnectDatabase('mongodb+srv://root:1234@ckd-app.rktvud5.mongodb.net/vitaguide?retryWrites=true&w=majority&appName=ckd-app')
-
 
 app.use('/database', databaserouter)
 app.use('/extract', imageRoute)
@@ -70,7 +81,8 @@ app.get('/logout', (req, res) => {
     return res.status(200).json({message: 'User was logged out'})
 })
 
+
+
 app.listen(8080, () => {
     console.log("Server started on PORT 8080")
 })
-

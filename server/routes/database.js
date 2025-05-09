@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const jsonwebtoken = require('jsonwebtoken')
 const databaserouter = express.Router()
 
+let cachedUserData = null
+
 class ConnectDatabase {
     constructor(URL) {
         mongoose.set("strictQuery", false)
@@ -58,8 +60,16 @@ databaserouter.post('/login', async (req, res) => {
             console.log('SERVER: Invalid credentials')
             return res.status(500).json({message: 'Invalid credentials. Try again'})
         } else {
+            req.session.user = existingUser
+            console.log(req.session.user)
+            req.session.save((err) => { // Save the session explicitly
+                if (err) {
+                    console.log('Error saving session:', err);
+                } else {
+                    console.log('Session saved');
+                }
+            })
             const authToken = jsonwebtoken.sign({user: username}, 'DUMMYKEY')
-            console.log(authToken)
             res.cookie('authToken', authToken, {
                 path: '/',
                 maxAge: 24 * 60 * 60 * 1000,
@@ -80,9 +90,12 @@ databaserouter.post('/login', async (req, res) => {
 databaserouter.get('/profile', async (req, res) => {
     const user = req.query.username
     const userData = await UserModel.findOne({username: user})
-    
-    console.log(userData)
-    res.status(200).json({message: userData})
+
+    return res.status(200).json({message: userData})
+})
+
+databaserouter.get('/test', async (req, res) => {
+    console.log(cachedUserData)
 })
 
 function verifyToken(token) {

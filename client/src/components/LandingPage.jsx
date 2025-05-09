@@ -26,11 +26,15 @@ export default function LandingPage() {
         
         try {
             const response = await axios.post('http://localhost:8080/extract/pdf', formData, {
-                headers: { 'Content-Type': 'multipart/form-data' }})
+                headers: { 'Content-Type': 'multipart/form-data' },
+                withCredentials: true });
+            
             if (response.status === 200) {
-                console.log(response.data.extracted)
-                const data = response.data.extracted
-                navigate('/diagnosis', {state: {uploadFile: preview, extractedValues: data }})
+                const data = response.data.data
+                console.log("Navigating with data:", preview, data)
+                sessionStorage.setItem("uploadFile", preview)
+                sessionStorage.setItem("extractedValues", JSON.stringify(data))
+                navigate('/diagnosis')
             } 
         } catch (err) {
             console.log(err.error)
@@ -49,6 +53,7 @@ export default function LandingPage() {
             
         }
     }, [uploadFile])
+
 
     return (
         <div>

@@ -14,7 +14,7 @@ export default function SignInForm() {
 
         try {
             const response = await axios.post('http://localhost:8080/database/login',
-                                            {username, password}
+                                            {username, password}, {withCredentials: true}
             )
             if (response.status === 200) {
                 setUserContext({username: response.data.username})
@@ -50,5 +50,6 @@ export default function SignInForm() {
             <button type="submit">Login</button>
             <Link to="/register">Create new account</Link>
         </form>
+        
     )
 }

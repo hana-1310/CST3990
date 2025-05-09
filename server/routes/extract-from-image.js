@@ -2,7 +2,11 @@ const express = require('express')
 const multer = require('multer')
 const path = require('path')
 const {exec} = require('child_process')
+const axios = require('axios')
+const {getLifestyleRecs} = require('../get_recommendations')
 const imageRoute = express.Router()
+
+let cachedExtractedData = null
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'uploads/'),
@@ -18,31 +22,84 @@ function fileValidation(req, file, cb) {
     }
 }
 
-const upload = multer({ storage, fileValidation })
+const upload = multer({ storage, fileFilter: fileValidation })
 
-imageRoute.post('/pdf', upload.single('pdf'), (req, res) => {
+imageRoute.post('/pdf', upload.single('pdf'), async (req, res) => {
     console.log('FILE RECEIVED')
     const file = path.join(__dirname, '..', '..', 'server', 'uploads', req.file.filename)
-    const pythonscript = path.join(__dirname, '..', '..', 'server', 'python-scripts', 'extract_text.py')
-    console.log(file)
-    exec(`python "${pythonscript}" "${file}"`, (err, stdout, stderr) => {
-        if (err) {
-            console.log("Python error: ", stderr)
-            return res.status(500).json({error: 'OCR FAILED'})
-        }
+    console.log('Received session:', req.session); // <-- Debugging the session
+    console.log('UserData from session:', req.session.user); // <-- Ensure userData is being sent correctly
 
-        const output = stdout.match(/{[^}]*}/s);
-        console.log(output[0])
+    if (!req.session.user) {
+        return res.status(401).json({ message: 'User is not logged in or session expired' });
+    }
+    console.log('filepath: ', file)
+    try {
+        const response = await axios.post(
+            'http://localhost:8800/extract-text', 
+            { filepath: file }, 
+            {
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            }
+          )
+        
+        cachedExtractedData = response.data.text
+        console.log('SERVER received: ', cachedExtractedData)
+        console.log(req.session, req.headers.cookie)
+        return res.status(200).json({data: cachedExtractedData})
+    } catch (err) {
+        console.log(err)
+        return res.status(500).json({error: 'Failed'})
+    }
 
+})
 
-        try {
-            const result = JSON.parse(output[0]) 
-            res.status(200).json({ extracted: result })
-        } catch (err) {
-            console.log('FAILED TO PARSE JSON', err)
-            res.status(500).json({ error: 'Invalid JSON format' })
-        }
-    })
+imageRoute.post('/get-diagnosis', async(req, res) => {
+    const {allergies, comorbidities} = req.body
+    console.log('RECEIVED DATA: ', allergies, comorbidities)
+
+    const BMI = req.session.user.BMI
+    const itching = req.session.user.itching
+    const cramps = req.session.user.cramps
+
+    userData = {'BMI': BMI, 'Itching': itching, 
+                'MuscleCramps': cramps}
+    const numericValues = Object.fromEntries(
+        Object.entries(cachedExtractedData).map(([key, value]) => [key, parseFloat(value)]))
+
+    const predictionData = {...userData, ...numericValues}
+    console.log(predictionData)
+
+    try {
+        const response = await axios.post('http://localhost:8801/detect-ckd', 
+            {data: predictionData},{headers: {'Content-Type' :'application/json'}})
+        
+        const preditedOutcome = response.data.prediction
+        console.log(preditedOutcome)
+
+            try {
+                if (preditedOutcome === 1){
+                    const diagnosis = {diagnosis: 'Positive'}
+                    const profile = {...predictionData, 
+                                    ...diagnosis, 
+                                    allergies: allergies,
+                                    comorbidities: comorbidities}
+                    console.log(profile)
+                    const content = await getLifestyleRecs(profile)
+                    console.log(content)
+                }
+                else if (preditedOutcome === 0) {
+                    console.log('NO')
+                }
+            } catch (err) {
+                console.log('ERROR from Lifestyle recs: ', err)
+            }
+    } catch (err) {
+        console.log('ERROR for detect-ckd microservise: ', err)
+    }   
+    
 })
 
 module.exports = { imageRoute }
