@@ -3,7 +3,8 @@ const multer = require('multer')
 const path = require('path')
 const {exec} = require('child_process')
 const axios = require('axios')
-const {getLifestyleRecs} = require('../get_recommendations')
+const {getLifestyleRecs} = require('./get_recommendations')
+const {UserModel} =  require('./database.js')
 const imageRoute = express.Router()
 
 let cachedExtractedData = null
@@ -14,7 +15,7 @@ const storage = multer.diskStorage({
 })
 
 function fileValidation(req, file, cb) {
-    const allowedFileTypes = ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf']
+    const allowedFileTypes = ['application/pdf']
     if (allowedFileTypes.includes(file.mimetype)) {
         cb(null, true)
     } else {
@@ -81,17 +82,26 @@ imageRoute.post('/get-diagnosis', async(req, res) => {
 
             try {
                 if (preditedOutcome === 1){
-                    const diagnosis = {diagnosis: 'Positive'}
+                    const diagnosis = 'Positive'
                     const profile = {...predictionData, 
                                     ...diagnosis, 
                                     allergies: allergies,
                                     comorbidities: comorbidities}
                     console.log(profile)
                     const content = await getLifestyleRecs(profile)
+
                     console.log(content)
+                    const updateDiagnosis = await UserModel.findByIdAndUpdate(
+                        req.session.user._id, 
+                        {diagnosis: diagnosis,
+                        recommendation: content}
+                    )
+                    console.log('Updated User: ', updateDiagnosis)
+                    return res.status(200).json({diagnosis: diagnosis, recommendations: content})
                 }
                 else if (preditedOutcome === 0) {
-                    console.log('NO')
+                    const diagnosis = {diagnosis: 'Negative'}
+                    return res.status(200).json({diagnosis: diagnosis, recommendations: 'None'})
                 }
             } catch (err) {
                 console.log('ERROR from Lifestyle recs: ', err)

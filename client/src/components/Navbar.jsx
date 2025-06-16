@@ -22,13 +22,15 @@ export default function Navbar() {
     return (
         <header>
             <nav>
+                <img src="/images/logo.png" alt="" />
                 <ul>
-                    <Link to="/">HOME</Link>
+                    <li><Link to="/">Home</Link></li>
+                    <li>{!userContext.username ? <Link to="/login">Sign In</Link> : <Link onClick={logoutClick} to="/">Sign Out</Link>}</li>
 
-                    
-                    <button>PROFILE</button>
-                    {!userContext.username ? <Link to="/login">SIGN IN</Link> : <Link onClick={logoutClick} to="/">LOGOUT</Link>}
-                    <li>{userContext.username}</li>
+                    <li className="profile">
+                        <img src="/images/user-icon.png" alt="" />
+                        {!userContext.username ? <Link to="/login">Profile</Link> : <Link to="/register">Hi {userContext.username}!</Link>}
+                    </li>
                     
                 </ul>
             </nav>

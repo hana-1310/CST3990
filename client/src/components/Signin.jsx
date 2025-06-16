@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 export default function SignInForm() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
     const {userContext, setUserContext} = useContext(isUserLoggedIn)
     const navigate = useNavigate()
 
@@ -23,33 +24,46 @@ export default function SignInForm() {
             }
         } catch (err) {
             console.error(err.response.data.message)
+            setError(err.response.data.message)
         }
 
     }
 
     return (
-        <form action={handleClick}>
-            <label htmlFor="username-input">Username
-                <input 
-                    type="text" 
-                    id="username-input"
-                    name="username" 
-                    value={username} 
-                    onChange={event => setUsername(event.target.value)}
-                />
-            </label>
-            <label htmlFor="password-input">Password
-                <input 
-                    type="text" 
-                    id="password-input"
-                    name="password" 
-                    value={password} 
-                    onChange={event => setPassword(event.target.value)}
-                />
-            </label>
-            <button type="submit">Login</button>
-            <Link to="/register">Create new account</Link>
-        </form>
+        <div className="signin-container">
+            <form action={handleClick} className="signin-form">
+                <h2>Sign In</h2>
+                <p>Access CKDVitaGuide's features by signing in to your account</p>
+                <hr />
+                <label htmlFor="username-input">Username
+                    <input 
+                        type="text" 
+                        id="username-input"
+                        name="username" 
+                        value={username} 
+                        onChange={event => setUsername(event.target.value)}
+                        required
+                    />
+                    {error && <p>{error}</p>}
+
+                </label>
+                <label htmlFor="password-input">Password
+                    <input 
+                        type="text" 
+                        id="password-input"
+                        name="password" 
+                        value={password} 
+                        onChange={event => setPassword(event.target.value)}
+                        required
+                    />
+                </label>
+                <button type="submit">Sign In</button>
+                <hr />
+                <p>No account yet?</p>
+                <Link to="/register">Create new account instead</Link>
+            </form>
+        </div>
+        
         
     )
 }

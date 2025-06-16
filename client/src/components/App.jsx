@@ -4,6 +4,7 @@ import SignUpForm from "./Signup"
 import SignInForm from "./Signin"
 import LandingPage from "./LandingPage"
 import Diagnosis from "./DiagnosisInterface"
+import ShowRecommendations from "./DiagnosisResults"
 import { isUserLoggedIn } from "../contexts/UserLoggedIn"
 import { useState, useEffect } from "react"
 import axios from "axios"
@@ -35,6 +36,8 @@ export default function App() {
                 <Route path="/login" element={<SignInForm/>}/>
                 <Route path="/register" element={<SignUpForm/>}/>
                 <Route path="/diagnosis" element={<Diagnosis/>}/>
+                <Route path="/recommendations" element={<ShowRecommendations/>}/>
+                
             </Routes>
             {/* {userContext.username ? <LandingPage /> : <SignInForm />} */}
             {/* <SignUpForm /> */}

@@ -56,41 +56,52 @@ export default function LandingPage() {
 
 
     return (
-        <div>
-            <div>
-                <p>
-                    To check for kidney disease, health care providers use
-                    a blood test that checks how well your kidneys are filtering 
-                    your blood, called GFR. GFR stands for glomerular filtration rate.
-                    a urine test to check for albumin. Albumin is a protein that 
-                    can pass into the urine when the kidneys are damaged.
-                    If you have kidney disease, your health care provider will use 
-                    the same two tests to help monitor your kidney disease and 
-                    make sure your treatment plan is working.
-                </p>
+        <div className="landing-page">
+            <div className="first-container">
+                <div className="ckd-description">
+                    <h1>What is Chronic Kidney Disease?</h1>
+                    <p>
+                        Chronic Kidney Disease (CKD) is a long-term condition 
+                        where the kidneys gradually lose function over time. 
+                        It progresses through five 
+                        stages, with Stage 5 being end-stage renal disease. CKD may not 
+                        show symptoms in early stages, making regular screening 
+                        important.
+                    </p>
+                    <p>
+                        Left untreated, 
+                        it can lead to serious complications such as heart disease. 
+                        Managing CKD involves controlling 
+                        lifestyle changes and medication.
+                    </p>
+                </div> 
+                <div className="pdf-upload">
+                    <form onSubmit={handleSubmit}>
+                        {/* {userContext.username ? 
+                        <input 
+                            type="file" 
+                            onChange={fileChange}
+                        /> :
+                        null}
+                        <Link 
+                        to='/diagnosis' 
+                        state={{uploadFile: preview}}
+                        onClick={(e)=> {
+                            if (!userContext.username) {
+                                e.preventDefault()
+                                alert('Please sign in to trigger your diagnosis')
+                            }
+                        }}>Upload</Link> */}
+                        <input type="file" id="file-input" name="pdf" onChange={fileChange} />
+                        <label htmlFor="file-input">Upload PDF to start Diagnosis</label>
+                        <button type="submit">Submit</button>
+                    </form>                
+                </div>
             </div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    {/* {userContext.username ? 
-                    <input 
-                        type="file" 
-                        onChange={fileChange}
-                    /> :
-                    null}
-                    <Link 
-                    to='/diagnosis' 
-                    state={{uploadFile: preview}}
-                    onClick={(e)=> {
-                        if (!userContext.username) {
-                            e.preventDefault()
-                            alert('Please sign in to trigger your diagnosis')
-                        }
-                    }}>Upload</Link> */}
-                    <input type="file" name="pdf" onChange={fileChange} />
-                    <button type="submit">Submit</button>
+            <div className="second-container">
 
-                </form>                
             </div>
+
         </div>
     )
 }

@@ -23,6 +23,7 @@ export default function SignUpForm() {
         const formErrors = validateForm()
         setErrors(formErrors)
         console.log(errors)
+        setUserExists(false)
 
         if (Object.keys(formErrors).length === 0) {
             
@@ -34,7 +35,7 @@ export default function SignUpForm() {
                                                     {username, age, password, BMI, height, weight, cramps, itching})
                 console.log(response)
             } catch (err) {
-                console.log(err)
+                console.log(err.response.data.message)
                 if (err.response && err.response.status === 500) {
                     setUserExists(true)
                 }
@@ -105,75 +106,82 @@ export default function SignUpForm() {
     
 
     return (
-        <form onSubmit={handleClick}>
-            <label htmlFor="username-input">Username
-                <input 
-                    id="username-input" 
-                    type="text" 
-                    name="username" 
-                    value={username} 
-                    onChange={(event) => setUsername(event.target.value)}
-                />
-                {errors.username && <p>{errors.username}</p>}
-            </label>
-            
-            <label htmlFor="age-input">Age
-                <input 
-                    id="age-input" 
-                    type="text" 
-                    name="age" 
-                    value={age} 
-                    onChange={(event) =>setAge(event.target.value)}/>
-                {errors.age && <p>{errors.age}</p>}
-            </label>
-            <label htmlFor="weight-input">Weight
-                <input 
-                    id="weight-input" 
-                    type="text" 
-                    name="weight" 
-                    value={weight} 
-                    onChange={(event) => setWeight(event.target.value)}/>
-                {errors.weight && <p>{errors.weight}</p>}
-            </label>
-            <label htmlFor="height-input">Height
-                <input 
-                    id="height-input" 
-                    type="text" 
-                    name="height" 
-                    value={height} 
-                    onChange={(event) => setHeight(event.target.value)}/>
-                {errors.height && <p>{errors.height}</p>}
-            </label>
-            <label htmlFor="itching-input">How severe is your itching on average?
-                <input 
-                    id="itching-input" 
-                    type="text" 
-                    name="itching" 
-                    value={itching}
-                    onChange={(event) => setItching(event.target.value)}/>
-                {errors.itching && <p>{errors.itching}</p>}
-            </label>
-            <label htmlFor="cramps-input">How many times per week do you experience muscle cramps?
-                <input 
-                    id="cramps-input" 
-                    type="text" 
-                    name="cramps" 
-                    value={cramps}
-                    onChange={(event) => setCramps(event.target.value)}/>
-                {errors.cramps && <p>{errors.cramps}</p>}
-            </label>
-            <label htmlFor="password-input">Password
-                <input 
-                    id="password-input" 
-                    type="text" 
-                    name="password" 
-                    value={password} 
-                    onChange={(event) => setPassword(event.target.value)}/>
-                {errors.password && <p>{errors.password}</p>}
-            </label>
+        <div className="signup-container">
+            <form onSubmit={handleClick} className="signup-form">
+                <h2>Create new account</h2>
+                <hr />
+                <label htmlFor="username-input">Username
+                    <input 
+                        id="username-input" 
+                        type="text" 
+                        name="username" 
+                        value={username} 
+                        onChange={(event) => setUsername(event.target.value)}
+                    />
+                    {errors.username && <p className="error">{errors.username}</p>}
+                    {userExists && <p className="error">Username already in use</p>}
+                </label>
+                <label htmlFor="password-input">Password
+                    <input 
+                        id="password-input" 
+                        type="text" 
+                        name="password" 
+                        value={password} 
+                        onChange={(event) => setPassword(event.target.value)}/>
+                    {errors.password && <p className="error">{errors.password}</p>}
+                </label>
+                <label htmlFor="age-input">Age
+                    <input 
+                        id="age-input" 
+                        type="text" 
+                        name="age" 
+                        value={age} 
+                        onChange={(event) =>setAge(event.target.value)}/>
+                    {errors.age && <p className="error">{errors.age}</p>}
+                </label>
+                <label htmlFor="weight-input">Weight
+                    <input 
+                        id="weight-input" 
+                        type="text" 
+                        name="weight" 
+                        value={weight} 
+                        onChange={(event) => setWeight(event.target.value)}/>
+                    {errors.weight && <p className="error">{errors.weight}</p>}
+                </label>
+                <label htmlFor="height-input">Height
+                    <input 
+                        id="height-input" 
+                        type="text" 
+                        name="height" 
+                        value={height} 
+                        onChange={(event) => setHeight(event.target.value)}/>
+                    {errors.height && <p className="error">{errors.height}</p>}
+                </label>
+                <label htmlFor="itching-input">How severe is your itching on average?
+                    <input 
+                        id="itching-input" 
+                        type="text" 
+                        name="itching" 
+                        value={itching}
+                        onChange={(event) => setItching(event.target.value)}/>
+                    {errors.itching && <p className="error">{errors.itching}</p>}
+                </label>
+                <label htmlFor="cramps-input">How many times per week do you experience muscle cramps?
+                    <input 
+                        id="cramps-input" 
+                        type="text" 
+                        name="cramps" 
+                        value={cramps}
+                        onChange={(event) => setCramps(event.target.value)}/>
+                    {errors.cramps && <p className="error">{errors.cramps}</p>}
+                </label>
 
-            <button type="submit">Submit</button>
+                <button type="submit">Submit</button>
+                <hr />
+                
+            </form>
             
-        </form>
+        </div>
+        
     )
 }

@@ -1,8 +1,8 @@
-import { useLocation, Link } from "react-router-dom"
-import { Fragment, useState } from "react"
+import { useNavigate, Link } from "react-router-dom"
+import { Fragment, use, useState } from "react"
 import axios from "axios"
 export default function Diagnosis(props) {
-    const location = useLocation()
+    const navigate = useNavigate()
     const uploadFile = sessionStorage.getItem("uploadFile")
     const extractedValues = JSON.parse(sessionStorage.getItem("extractedValues"))
 
@@ -17,17 +17,23 @@ export default function Diagnosis(props) {
             {allergies: allergies, comorbidities: otherComorbidities} , 
             {withCredentials: true})
         if (response.status === 200) {
-            console.log('YES')
+            const diagnosis = response.data.diagnosis
+            const recommendations = response.data.recommendations
+            navigate('/recommendations', {state: {diagnosis: diagnosis, recs: recommendations}})
+            console.log(diagnosis, recommendations)
         } else {
             console.log(err)
         }
     }
     function displayExtractedValues() {
         return Object.entries(extractedValues).map(([key, value]) => (
-            <label htmlFor={key + "-label"} key={key}>
-                {key}
-                <p id={key + "-label"}>{value}</p>
-            </label>
+            <div className="result-line">
+                <span className="label">
+                    {key}:
+                </span>
+                <span className="value">{value}</span>
+            </div>
+            
         ))
     }
     function handleInputChange(event) {
@@ -52,19 +58,26 @@ export default function Diagnosis(props) {
     
     return (
         <Fragment>
-            <div>
+            <div className="text-extract-container">
                 <iframe
                     src={uploadFile}
                     width="40%"
                     height="600px"
                     style={{ border: "1px solid #ccc" }}
-                    title="PDF Viewer">
+                    title="PDF Viewer"
+                    >
                 </iframe>
-                <div>
-                    {displayExtractedValues()}
+                <div className="bloodtests">
+                    <h2>Extracted</h2>
+                    <h2>Blood Tests</h2>
+                    <h2>Values</h2>
+                    <div className="values">
+                        {displayExtractedValues()}
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="">Allergies (if any)
+                <div className="vertical-line"></div> 
+                <div className="additional-info">
+                    <label htmlFor="" className="allergies">ENTER ALLERGIES (IF ANY)
                         <input 
                             type="text"
                             name="allergies"
@@ -73,7 +86,7 @@ export default function Diagnosis(props) {
                             onBlur={handleAllergyBlur}
                         />
                     </label>
-                    <label htmlFor="">Comorbidities
+                    <label htmlFor="" className="comorbidities">DO YOU HAVE ANY COMORBIDITIES?
                         <input 
                             type="checkbox"
                             name="comorbidity"
@@ -93,10 +106,11 @@ export default function Diagnosis(props) {
                         />
                         <label htmlFor="diabetes">Diabetes</label>
                     </label>
+                    <button onClick={handleClick}>Run Diagnosis</button>
                 </div>
             </div>
 
-            <button onClick={handleClick}>Run Diagnosis & Get Recommendation</button>
+            
         </Fragment>
     )
 }

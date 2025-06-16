@@ -1,0 +1,369 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    src: url('/client/public/fonts/OpenSans-Italic.ttf') format('truetype');
+}
+:root {
+    --primary-color: #FFFFFF;
+    --green: #eefcbf;
+    --black: #212025;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Nunito', sans-serif;
+    background-color: var(--primary-color);
+}
+
+header {
+    background-color: var(--black);
+    padding: 20px;
+    padding-left: 100px;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+nav {
+    display: inline-flex;
+}
+
+nav > img {
+    margin: 0;
+    height: 50px;
+    padding-right: 75px;
+}
+
+nav > ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-right: 50px;
+}
+
+.profile {
+    display: inline-flex;
+    width: 100px;
+    padding: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.515);
+    border-radius: 22px;
+    margin-top: -6px;
+    margin-left: 675px;
+}
+
+.profile > a {
+    margin-right: 0;
+    font-size: small;
+    margin-top: 3px;
+}
+
+.profile > img {
+    width: 27px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.first-container {
+    margin: 0;
+    background-image: url('/images/landingpage-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 650px;
+    width: 1000px;
+    margin-left: 250px;
+}
+
+.ckd-description {
+    margin-left: -150px;
+    width: 450px;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 50px;
+}
+
+.ckd-description > p {
+    color: #4f4f51e6;
+    font-size: 14px;
+}
+
+.pdf-upload {
+    background-color: #626265;
+    width:400px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 800px;
+}
+
+.pdf-upload > form {
+    background-color: #212025;
+}
+
+.second-container {
+    background-color: var(--black);
+    height: 600px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+}
+
+/*SIGN IN STYLING*/
+
+.signin-container {
+    background-color: var(--primary-color);
+    color: rgba(0, 0, 0, 0.707);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    margin: 0;
+    gap: 15px;
+    font-size: small;
+    
+}
+
+.signin-form > h2 {
+    margin-bottom: -25px;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+}
+
+.signin-form > p {
+    margin-bottom: -20px;
+    color: rgba(54, 158, 54, 0.889);
+}
+
+.signin-form > label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    gap: 4px;
+}
+
+.signin-form > label > input {
+    border-radius: 6px;
+    border: 1px solid rgba(173, 93, 93, 0.927);
+    height: 25px;
+    background-color: var(--primary-color);
+}
+
+.signin-form > label > input:valid {
+    border: 1px solid rgba(56, 154, 47, 0.884);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #cccccce6;
+  margin: 20px 0;
+}
+
+.signin-form > button {
+    margin-top: 20px;
+    width: 100px;
+    padding: 8px;
+    border: 1.5px solid  rgba(54, 158, 54, 0.889);
+    border-radius: 6px;
+    color:  rgba(54, 158, 54, 0.889);
+    background-color: var(--primary-color);
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+}
+
+.signin-form > button:hover {
+    background-color: rgb(167, 209, 167);
+    color: var(--black);
+    transform: scale(1.05);
+}
+
+/**SIGN UP*/
+.signup-container {
+    background-color: var(--black);
+    color: rgba(255, 255, 255, 0.886);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    margin: 0;
+    gap: 15px;
+    font-size: small;
+}
+
+.signup-form > h2 {
+    margin-bottom: -10px;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    color: rgb(167, 209, 167);
+}
+
+.signup-form > label {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    gap: 5px;
+}
+
+.signup-form > label > input {
+    border-radius: 6px;
+    border: 1.5px solid rgba(113, 175, 139, 0.921);
+    height: 20px;
+    background-color: var(--primary-color);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #cccccce6;
+  margin: 20px 0;
+}
+
+.signup-form > button {
+    margin-top: 20px;
+    width: 100px;
+    padding: 8px;
+    border: 1.5px solid  rgb(167, 209, 167);
+    border-radius: 6px;
+    color:  rgb(167, 209, 167);
+    background-color: var(--black);
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+}
+
+.signup-form > button:hover {
+    background-color: rgb(167, 209, 167);
+    color: var(--black);
+    transform: scale(1.05);
+}
+
+.error {
+    color: rgb(159, 49, 49);
+    font-size: 10px;
+}
+
+/**DIAGNOSIS INTERFACE STYLINH*/
+
+.text-extract-container {
+    display: inline-flex;
+    margin-top: 30px;
+    gap: 100px;
+}
+
+.text-extract-container > iframe {
+    width: 450px;
+    height: 600px;
+    border-radius: 12px;
+    border: 1px #333 solid;
+    margin-left: 50px;
+    
+}
+
+.bloodtests {
+    width: 400px;
+}
+.bloodtests > h2 {
+    margin: 0;
+    margin-bottom: -8px;
+    letter-spacing: 7px;
+    color: #91c276d7;
+}
+
+.values {
+    margin-top: 50px;
+}
+
+.result-line {
+    display: flex;
+    justify-content: space-between;
+    max-width: 370px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.label {
+    text-transform: uppercase;
+}
+
+.value {
+    font-weight: 600;
+    color: #333;
+} 
+
+.vertical-line {
+  width: 1px;
+  height: 600px; 
+  background-color: #000;
+}
+
+.additional-info {
+    display: grid;
+    height: 300px;
+    margin-top: 130px;
+}
+
+.additional-info > .allergies {
+    display: grid;
+
+}
+
+.additional-info > button {
+    margin-top: 20px;
+    width: 180px;
+    height: 50px;
+    padding: 8px;
+    border: 1.5px solid  rgb(156, 10, 44);
+    border-radius: 6px;
+    color:  rgb(156, 10, 44);
+    background-color: var(--black);
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 1s ease, transform 1s ease;
+    align-items: center;
+}
+
+.additional-info > button:hover {
+    background-color: rgb(156, 10, 44);
+    color: var(--black);
+    transform: scale(1.05);
+}
+
+.allergies, .comorbidities {
+    font-size: 13px;
+    color: #212025ca;
+}
+
+.allergies > input {
+    border-radius: 6px;
+    border: 1.5px solid;
+    height: 30px;
+    width: 280px;
+    background-color: var(--primary-color);
+    margin-top: -20px;
+}

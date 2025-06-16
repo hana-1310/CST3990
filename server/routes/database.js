@@ -11,7 +11,7 @@ class ConnectDatabase {
         mongoose.connect(URL).then(() => {
             console.log('Connection has successfully been established to MONGODB Atlas')
         }).catch(err => {
-            console.log('Unsuccessful Connection: ', err)
+            console.log('Unsuccessful Connection to database: ', err)
         })
     }
 }
@@ -24,7 +24,9 @@ const userSchema = new mongoose.Schema({
     height: Number,
     weight: Number,
     itching: Number,
-    cramps: Number
+    cramps: Number,
+    diagnosis: String,
+    recommendation: String
 })
 
 const UserModel = mongoose.model('User', userSchema)
@@ -33,13 +35,16 @@ databaserouter.post('/register', async (req, res) => {
     try {
         console.log(req.body)
         const { username, age, password, BMI, height, weight, cramps, itching } = req.body
+        const diagnosis = ''
+        const recommendation = ''
         const existingUser = await UserModel.find({username: username})
 
         if (existingUser.length > 0) {
             console.log("SERVER: Username is taken")
             return res.status(500).json({message: "Username is taken"})
         } else {
-            const newUser = UserModel({ username, age, password, BMI, height, weight, cramps, itching })
+            const newUser = UserModel({ username, age, password, BMI, height, 
+                weight, cramps, itching, diagnosis, recommendation})
             await newUser.save()
             console.log("SERVER: User creation was a success")
         }
@@ -58,11 +63,11 @@ databaserouter.post('/login', async (req, res) => {
         const existingUser = await UserModel.findOne({username: username, password: password})
         if (!existingUser) {
             console.log('SERVER: Invalid credentials')
-            return res.status(500).json({message: 'Invalid credentials. Try again'})
+            return res.status(500).json({message: 'Invalid credentials.'})
         } else {
             req.session.user = existingUser
             console.log(req.session.user)
-            req.session.save((err) => { // Save the session explicitly
+            req.session.save((err) => { 
                 if (err) {
                     console.log('Error saving session:', err);
                 } else {
@@ -106,4 +111,4 @@ function verifyToken(token) {
     }
 }
 
-module.exports = {ConnectDatabase, databaserouter, verifyToken}
+module.exports = {ConnectDatabase, databaserouter, verifyToken, UserModel}
