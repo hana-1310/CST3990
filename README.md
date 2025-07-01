@@ -2,16 +2,15 @@ THIS REPOSITORY CONTAINS:
 - the full-stack application under client/ and server/ respectively
 - notebook used to explore dataset, data preprocessing and model training under dataset-notebook/ directory
 - Sample PDF Report
-# A template blood test report (sample_report.pdf) is provided under the uploads/ directory. 
-# can be used for the system's full workflow 
+   A template blood test report (sample_report.pdf) is provided under the uploads/ directory. 
+   can be used for the system's full workflow 
 - unit test cases under server/tests/
 - evaluation for recommendation engine under server/evaluation/
 
 As for the dataset used in model training, it can be accessed from this link:
 https://www.kaggle.com/datasets/rabieelkharoua/chronic-kidney-disease-dataset-analysis/data
 
-#################################################################
-Running the Project Locally
+### Running the Project Locally
 
 Follow these steps to set up the application locally:
 
@@ -27,7 +26,7 @@ pip install -r requirements.txt
 npm run dev
 
 ### 4. Run Python Microservices
-# n a separate terminal window:
+#### In a separate terminal window, run these 2 fastapi apps:
 
 cd server/microservices
 python extract_text.py
@@ -37,13 +36,13 @@ python detect.py
 # open new terminal
 npm run dev
 
-###################################################################################
-# TESTING 
+
+### TESTING 
 cd server
 npm test
-###################################################################################
-# EVALUATION
+
+### EVALUATION
 cd server/evaluation
 py embedding.py
 node evaluateRecs.js
-# find results under results/ directory
+##### find results under results/ directory
