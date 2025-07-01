@@ -3,9 +3,9 @@ const multer = require('multer')
 const path = require('path')
 const {exec} = require('child_process')
 const axios = require('axios')
-const {getLifestyleRecs} = require('./get_recommendations')
+const {getLifestyleRecs} = require('../handler/get_recommendations.js')
 const {UserModel} =  require('./database.js')
-const imageRoute = express.Router()
+const diagnosisRoute = express.Router()
 
 let cachedExtractedData = null
 
@@ -25,14 +25,13 @@ function fileValidation(req, file, cb) {
 
 const upload = multer({ storage, fileFilter: fileValidation })
 
-imageRoute.post('/pdf', upload.single('pdf'), async (req, res) => {
+diagnosisRoute.post('/pdf', upload.single('pdf'), async (req, res) => {
     console.log('FILE RECEIVED')
     const file = path.join(__dirname, '..', '..', 'server', 'uploads', req.file.filename)
-    console.log('Received session:', req.session); // <-- Debugging the session
-    console.log('UserData from session:', req.session.user); // <-- Ensure userData is being sent correctly
+    console.log('UserData from session:', req.session.user); 
 
     if (!req.session.user) {
-        return res.status(401).json({ message: 'User is not logged in or session expired' });
+        return res.status(401).json({ message: 'User is not logged in // session expired' })
     }
     console.log('filepath: ', file)
     try {
@@ -47,9 +46,16 @@ imageRoute.post('/pdf', upload.single('pdf'), async (req, res) => {
           )
         
         cachedExtractedData = response.data.text
-        console.log('SERVER received: ', cachedExtractedData)
-        console.log(req.session, req.headers.cookie)
-        return res.status(200).json({data: cachedExtractedData})
+        let status = response.data.status
+        console.log('SERVER received: ', status, cachedExtractedData)
+        if (status === true) {
+            return res.status(200).json({message: 'Successful Data Extraction', data: cachedExtractedData})
+        } else if (status === false) {
+            return res.status(500).json({message: cachedExtractedData})
+        } else {
+            return res.status(500).json({message: cachedExtractedData})
+        }
+        
     } catch (err) {
         console.log(err)
         return res.status(500).json({error: 'Failed'})
@@ -57,7 +63,7 @@ imageRoute.post('/pdf', upload.single('pdf'), async (req, res) => {
 
 })
 
-imageRoute.post('/get-diagnosis', async(req, res) => {
+diagnosisRoute.post('/get-diagnosis', async(req, res) => {
     const {allergies, comorbidities} = req.body
     console.log('RECEIVED DATA: ', allergies, comorbidities)
 
@@ -97,12 +103,23 @@ imageRoute.post('/get-diagnosis', async(req, res) => {
                         recommendation: content}
                     )
                     console.log('Updated User: ', updateDiagnosis)
-                    return res.status(200).json({diagnosis: diagnosis, recommendations: content})
+                    return res.status(200).json({message: 'Prediction is positive',diagnosis: diagnosis, recommendations: content})
                 }
                 else if (preditedOutcome === 0) {
-                    const diagnosis = {diagnosis: 'Negative'}
-                    return res.status(200).json({diagnosis: diagnosis, recommendations: 'None'})
-                }
+                    const diagnosis = 'Negative'
+                    const profile = {...predictionData, 
+                                    ...diagnosis, 
+                                    allergies: allergies,
+                                    comorbidities: comorbidities}
+                    const content = await getLifestyleRecs(profile)
+                    const updateDiagnosis = await UserModel.findByIdAndUpdate(
+                        req.session.user._id, 
+                        {diagnosis: diagnosis,
+                        recommendation: content}
+                    )
+                    console.log('Updated User: ', updateDiagnosis)
+                    return res.status(200).json({message: 'Prediction is negative',diagnosis: diagnosis, recommendations: content})
+                } 
             } catch (err) {
                 console.log('ERROR from Lifestyle recs: ', err)
             }
@@ -112,4 +129,4 @@ imageRoute.post('/get-diagnosis', async(req, res) => {
     
 })
 
-module.exports = { imageRoute }
+module.exports = { diagnosisRoute, fileValidation }

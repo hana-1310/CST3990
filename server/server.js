@@ -1,7 +1,7 @@
 /**npm run devStart runs all the code in server.js then waits for any changes */
 /**create express server */
 const {ConnectDatabase, databaserouter, verifyToken} = require('./routes/database.js')
-const {imageRoute} = require('./routes/extract-from-image.js')
+const {diagnosisRoute} = require('./routes/diagnosis.js')
 
 const express = require("express")
 const bodyParser = require('body-parser')
@@ -53,7 +53,7 @@ app.use(session({
 const vitaGuideDB = new ConnectDatabase('mongodb+srv://root:1234@ckd-app.rktvud5.mongodb.net/vitaguide?retryWrites=true&w=majority&appName=ckd-app')
 
 app.use('/database', databaserouter)
-app.use('/extract', imageRoute)
+app.use('/extract', diagnosisRoute)
 
 
 app.get('/autoLogin', (req, res) => {

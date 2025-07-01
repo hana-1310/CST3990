@@ -139,7 +139,7 @@ export default function SignUpForm() {
                         onChange={(event) =>setAge(event.target.value)}/>
                     {errors.age && <p className="error">{errors.age}</p>}
                 </label>
-                <label htmlFor="weight-input">Weight
+                <label htmlFor="weight-input">Weight (kg)
                     <input 
                         id="weight-input" 
                         type="text" 
@@ -148,7 +148,7 @@ export default function SignUpForm() {
                         onChange={(event) => setWeight(event.target.value)}/>
                     {errors.weight && <p className="error">{errors.weight}</p>}
                 </label>
-                <label htmlFor="height-input">Height
+                <label htmlFor="height-input">Height (cm)
                     <input 
                         id="height-input" 
                         type="text" 

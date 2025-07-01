@@ -29,7 +29,7 @@ export default function Navbar() {
 
                     <li className="profile">
                         <img src="/images/user-icon.png" alt="" />
-                        {!userContext.username ? <Link to="/login">Profile</Link> : <Link to="/register">Hi {userContext.username}!</Link>}
+                        {!userContext.username ? <Link to="/login">Profile</Link> : <Link to="/profile">Hi {userContext.username}!</Link>}
                     </li>
                     
                 </ul>

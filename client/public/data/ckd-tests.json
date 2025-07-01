@@ -1,0 +1,112 @@
+[
+  {
+    "group": "Kidney Function Tests",
+    "tests": [
+      {
+        "name": "Serum Creatinine",
+        "description": "Measures muscle waste; high levels suggest poor kidney filtering.",
+        "normalRange": "25–115 U/L"
+      },
+      {
+        "name": "Blood Urea Nitrogen (BUN Levels)",
+        "description": "Assesses nitrogen waste in blood.",
+        "normalRange": "98–107 mmol/L"
+      },
+      {
+        "name": "GFR",
+        "description": "Indicates overall kidney function. >90 = healthy.",
+        "normalRange": "Above 90"
+      }
+    ]
+  },
+  {
+    "group": "Urine Analysis",
+    "tests": [
+      {
+        "name": "Protein in Urine",
+        "description": "Detects kidney damage from protein leakage.",
+        "normalRange": "<3.37 mmol/L"
+      },
+      {
+        "name": "Albumin-to-Creatinine Ratio (ACR)",
+        "description": "Measures albumin leakage; high ACR = kidney stress.",
+        "normalRange": "<3.4 mmol/L"
+      }
+    ]
+  },
+  {
+    "group": "Blood Sugar Tests",
+    "tests": [
+      {
+        "name": "Fasting Blood Sugar",
+        "description": "Measures blood sugar levels after fasting.",
+        "normalRange": "38–126 U/L"
+      },
+      {
+        "name": "HbA1c",
+        "description": "Averages blood sugar over 2–3 months; critical for diabetes monitoring.",
+        "normalRange": "<5.7%"
+      }
+    ]
+  },
+  {
+    "group": "Serum Electrolytes",
+    "tests": [
+      {
+        "name": "Sodium",
+        "description": "Controls fluid balance and nerve function.",
+        "normalRange": "135–145 mmol/L"
+      },
+      {
+        "name": "Potassium",
+        "description": "Regulates heart and muscle function.",
+        "normalRange": "4–6 mmol/L"
+      },
+      {
+        "name": "Calcium",
+        "description": "Supports bones and heart function.",
+        "normalRange": "6–35 µmol/L"
+      },
+      {
+        "name": "Phosphorus",
+        "description": "Works with calcium; rises in advanced CKD.",
+        "normalRange": "2.5–4.5 mg/dL"
+      }
+    ]
+  },
+  {
+    "group": "Cholesterol Profile",
+    "tests": [
+      {
+        "name": "Total Cholesterol",
+        "description": "Assesses total fat in blood.",
+        "normalRange": "<200 mg/dL"
+      },
+      {
+        "name": "LDL (“Bad” Cholesterol)",
+        "description": "Contributes to plaque buildup in arteries.",
+        "normalRange": "<100 mg/dL"
+      },
+      {
+        "name": "HDL (“Good” Cholesterol)",
+        "description": "Protects against heart disease.",
+        "normalRange": ">40 mg/dL"
+      },
+      {
+        "name": "Triglycerides",
+        "description": "High levels increase heart risk.",
+        "normalRange": "<150 mg/dL"
+      }
+    ]
+  },
+  {
+    "group": "Hemoglobin Levels",
+    "tests": [
+      {
+        "name": "Hemoglobin (Hb)",
+        "description": "Measures oxygen-carrying red blood cells; low levels may indicate anemia.",
+        "normalRange": "12–16 g/dL (for women)"
+      }
+    ]
+  }
+]

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose')
-const jsonwebtoken = require('jsonwebtoken')
+const jsonwebtoken = require('jsonwebtoken');
+const session = require('express-session');
 const databaserouter = express.Router()
 
 let cachedUserData = null
@@ -47,12 +48,13 @@ databaserouter.post('/register', async (req, res) => {
                 weight, cramps, itching, diagnosis, recommendation})
             await newUser.save()
             console.log("SERVER: User creation was a success")
+            return res.status(500).json({message:"User creation was a success"})
         }
 
         
     } catch (err) {
         console.log(err)
-        res.status(500).json({ message: "Error creating user" })
+        res.status(500).json({ message: "Error creating user, does not fit User Schema dtypes" })
     }
 
 })
@@ -89,19 +91,19 @@ databaserouter.post('/login', async (req, res) => {
     } catch (err) {
         res.status(500).json({error: err})
     }
-    
 })
 
 databaserouter.get('/profile', async (req, res) => {
-    const user = req.query.username
-    const userData = await UserModel.findOne({username: user})
-
-    return res.status(200).json({message: userData})
+    try {
+        const user = req.session.user.username
+        const userData = await UserModel.findOne({username: user})
+        return res.status(200).json({message: 'User Profile found!', data: userData})
+    } catch (err) {
+        console.error(err)
+        return res.status(500).json({message: 'Internal server error, user profile does not exist'})
+    }
 })
 
-databaserouter.get('/test', async (req, res) => {
-    console.log(cachedUserData)
-})
 
 function verifyToken(token) {
     try {

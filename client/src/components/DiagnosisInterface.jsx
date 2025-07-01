@@ -1,8 +1,10 @@
 import { useNavigate, Link } from "react-router-dom"
-import { Fragment, use, useState } from "react"
+import { Fragment,  useState } from "react"
 import axios from "axios"
+
 export default function Diagnosis(props) {
     const navigate = useNavigate()
+    // retrieves pdf file stored in session management
     const uploadFile = sessionStorage.getItem("uploadFile")
     const extractedValues = JSON.parse(sessionStorage.getItem("extractedValues"))
 
@@ -11,8 +13,9 @@ export default function Diagnosis(props) {
 
     const [otherComorbidities, setOtherComorbidities] = useState([])
 
+    // POST request to backend to conduct CKD diagnosis and get recs
     async function handleClick() {
-        console.log('Client TEST: ',allergies, otherComorbidities)
+        console.log('Client TEST: ', allergies, otherComorbidities)
         const response = await axios.post('http://localhost:8080/extract/get-diagnosis', 
             {allergies: allergies, comorbidities: otherComorbidities} , 
             {withCredentials: true})
@@ -25,6 +28,7 @@ export default function Diagnosis(props) {
             console.log(err)
         }
     }
+    // display for data extracted from pdf
     function displayExtractedValues() {
         return Object.entries(extractedValues).map(([key, value]) => (
             <div className="result-line">
@@ -47,7 +51,6 @@ export default function Diagnosis(props) {
             .filter(Boolean);
         setAllergies(parsed);
     }
-    
 
     function handleChange(event) {
         const input = event.target.value 
@@ -63,9 +66,7 @@ export default function Diagnosis(props) {
                     src={uploadFile}
                     width="40%"
                     height="600px"
-                    style={{ border: "1px solid #ccc" }}
-                    title="PDF Viewer"
-                    >
+                    title="PDF Viewer">
                 </iframe>
                 <div className="bloodtests">
                     <h2>Extracted</h2>

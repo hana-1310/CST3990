@@ -103,16 +103,88 @@ h1 {
 }
 
 .pdf-upload > form {
-    background-color: #212025;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #13121269;
+    border-radius: 5px;
 }
 
 .second-container {
     background-color: var(--black);
-    height: 600px;
     border-top-left-radius: 32px;
     border-top-right-radius: 32px;
+    color: var(--primary-color);
+    padding-left: 90px;
 }
 
+.test-container{
+    display: flex;
+    flex-wrap: wrap;   
+    gap: 16px;     
+    justify-content: center; 
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.test-key {
+    border-radius: 9px;
+    background-color: #24a23f1c;
+    width: 400px;
+    padding: 30px;
+}
+
+.test-no {
+    background-color: rgba(255, 255, 255, 0.134);
+    padding: 10px;
+    border-radius: 9px;
+}
+
+.test-name {
+    color: rgb(29, 36, 31);
+    text-decoration: underline;
+}
+.inpdddut[type="file"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: #1aa3bb;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.inpdddut[type="submit"] {
+  padding: 10px 20px;
+  background-color: #008CBA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.inpdddut[type="submit"]:hover {
+  background-color: #006F8F;
+}
+
+.readmore {
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    margin-left: 670px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+    
+.test-heading {
+    color: var(--green);
+    font-size: 28px;
+}
 /*SIGN IN STYLING*/
 
 .signin-container {
@@ -366,4 +438,77 @@ hr {
     width: 280px;
     background-color: var(--primary-color);
     margin-top: -20px;
+}
+
+/**DIAGNOSIS RESULTS PAGE*/
+
+.diagnosis-container {
+    margin: 50px 420px;
+}
+
+.diagnosis-title {
+    color: #be2727;
+}
+
+.prognostic {
+    color: #461717;
+}
+
+/**PROFILE*/
+
+.dashboard-container {
+    background-color: #c8c8c876;
+}
+
+.main-container {
+    display: inline-flex;
+    gap: 200px;
+    margin: 60px 300px;
+    height: 550px;
+    
+}
+
+.personal-title {
+    margin-bottom: -30px;
+}
+
+.recs-title {
+    margin-top: 150px;
+    margin-bottom: 40px;
+    border-radius: 35px;
+    border: solid 1px black;
+    padding: 15px;
+    background-color: rgba(197, 228, 187, 0.816);
+    width: 130px;
+}
+
+.recommendations-container > button {
+    height: 90px;
+    border-radius: 10px;
+}
+
+.user-details-container {
+    display: grid;
+    margin: 0;
+}
+
+.user-details-container > .value {
+  display: grid; 
+  place-items: center; 
+  font-size: 30px;
+  color: #212025;
+}
+
+.user-details-container > .label {
+  display: grid; 
+  place-items: center; 
+  font-size: 10px;
+  margin-top: -110px;
+}
+
+.user-name {
+  font-family: 'Allura', cursive;
+  font-size: 48px; 
+  color: rgba(88, 105, 82, 0.816); 
+  letter-spacing: 1px;
 }

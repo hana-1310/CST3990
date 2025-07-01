@@ -1,0 +1,232 @@
+[
+  {
+    "profile": {
+      "diagnosis": "CKD",
+      "BMI": 32,
+      "GFR": 55,
+      "SerumCreatinine": 1.8,
+      "SerumElectrolytesPotassium": 5.7,
+      "ACR": 40,
+      "cramps": 2,
+      "HemoglobinLevels": 11,
+      "comorbidities": "Hypertension",
+      "allergies": "None",
+      "expectedRecommendation": "Suggest seeing a kidney specialist. Recommend low-protein Mediterranean diet. Advise reducing high-potassium foods such as bananas. Encourage hydration and low-sodium diet. Encourage increased physical activity. Lose weight. Suggest iron intake. Promote hydration and evaluate electrolytes. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Thank you for sharing your information! Below are some personalized suggestions for daily habits and lifestyle choices that could contribute to your overall wellness, keeping your kidney health in mind:\n\n---\n\n### Food and Nutrition\n1. **Low-Protein Diet:** Consider exploring a Mediterranean-style diet with an emphasis on plant-based meals, whole grains, and healthy fats like olive oil. This can help to ease the load on your kidneys while still providing essential nutrients.\n2. **Be Cautious with Potassium:** It’s a good idea to reduce foods that are high in potassium, such as bananas, oranges, sweet potatoes, and avocados. Instead, focus on apples, berries, or green beans as your go-to fruits and veggies.\n3. **Reduce Salt:** Choose fresh foods instead of heavily processed options to naturally keep your sodium intake low. Put away the salt shaker and explore other seasonings like herbs, pepper, or citrus for flavor.\n4. **Boost Iron Levels:** Foods like spinach, beans, fortified cereals, whole grains, and lean meats can help support your iron intake, which can be crucial for overall energy and wellness.\n5. **Stay Hydrated:** Aim to drink enough water daily, but avoid flooding your body. Sipping water throughout the day can help keep things balanced.\n\n---\n\n### Physical Activity and Fitness\n6. **Move Regularly:** Start increasing your activity slowly and consistently. Something as simple as brisk walking for 20-30 minutes a day can go a long way in supporting your overall wellness.\n7. **Weight Support:** Your BMI suggests you might benefit from a gradual focus on weight management. Pairing balanced nutrition with regular activity can help work toward this goal over time.\n\n---\n\n### Wellness Practices\n8. **Stay Hydrated and Balanced:** While staying hydrated, also pay attention to how your body feels. Staying mindful of hydration and electrolyte balance is key.\n9. **Address Muscle Cramps:** If you’re experiencing cramps weekly, keeping track of when they happen, drinking enough water, and possibly stretching daily can help make your muscles happier.\n10. **Be Proactive About Kidney Health:** Booking regular check-ins with a kidney health specialist is important. Kidney health requires attention to prevent further strain.\n\n---\n\n### Important Note\nIt’s a good idea to reach out to a healthcare professional to discuss your situation further. Early attention to your kidneys and overall health can make a big difference!\n\n---\n\nThis is for general wellness guidance only.",
+    "evaluation": {
+      "maxSimilarity": 0.7695477415607652,
+      "avgSimilarity": 0.7695477415607652,
+      "similarities": [
+        0.7695477415607652
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "No CKD",
+      "BMI": 24,
+      "GFR": 90,
+      "SerumCreatinine": 0.9,
+      "SerumElectrolytesPotassium": 4.3,
+      "ACR": 10,
+      "cramps": 0,
+      "HemoglobinLevels": 13.5,
+      "comorbidities": "None",
+      "allergies": "Pollen",
+      "expectedRecommendation": "Maintain a healthy lifestyle through balanced nutrition and hydration. Continue regular annual kidney check-ups. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Thank you for sharing your health details! Based on the information provided, it looks like you're in good health overall. To support your general wellness and kidney health, here are a few lifestyle tips to consider:\n\n### Stay Hydrated  \nMake water your go-to drink throughout the day. Proper hydration supports your kidneys and helps them function well. Aim to drink enough water to keep your body feeling refreshed. \n\n### Prioritize a Balanced Diet  \nConsider incorporating a Mediterranean-style diet into your meals. This includes plenty of fresh vegetables, whole grains, healthy fats (like olive oil), and lean proteins such as fish or poultry. Eating a variety of foods can help sustain overall health.\n\n### Keep an Eye on Sodium  \nOpt for fresh, home-cooked meals where you can control the amount of salt. Avoid overindulging in processed or packaged foods, which tend to be high in sodium. Season with herbs and spices for added flavor instead of salt.\n\n### Stay Active  \nRegular physical activity, such as walking, dancing, or yoga, can help maintain your overall wellness and energy levels. Aim for at least 30 minutes of moderate activity most days of the week.\n\n### Routine Yearly Checks  \nEven if you are feeling well, routine health checks are a great habit to keep on top of things like kidney function, potassium levels, and other vital markers. It’s worth scheduling these checks annually.\n\n### Focus on Iron-Rich Foods  \nInclude iron-rich options like spinach, lentils, eggs, or fortified cereals in your meals. These can help maintain energy and general wellness.\n\n### Maintain a Healthy Weight  \nYour BMI looks great at 24! To sustain this, focus on balanced meals, portion control, and consistent activity. A little movement every day adds up over time.\n\nLastly, if you notice recurring muscle cramps, it might be a good idea to connect with a healthcare professional to discuss and evaluate electrolyte balance further.  \n\n**This is for general wellness guidance only.**",
+    "evaluation": {
+      "maxSimilarity": 0.6926449070263297,
+      "avgSimilarity": 0.6926449070263297,
+      "similarities": [
+        0.6926449070263297
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "CKD",
+      "BMI": 34,
+      "GFR": 48,
+      "SerumCreatinine": 2,
+      "SerumElectrolytesPotassium": 5.9,
+      "ACR": 50,
+      "cramps": 3,
+      "HemoglobinLevels": 10.2,
+      "comorbidities": "Diabetes",
+      "allergies": "None",
+      "expectedRecommendation": "Consider consulting a nephrologist. Reduce protein intake through diets like Mediterranean. Limit foods high in potassium such as bananas. Maintain low-sodium intake and stay well hydrated. Increase physical activity. Begin weight management. Boost iron intake. Monitor electrolyte balance. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Based on the information provided, here are some suggestions to help support overall wellness and habits that are generally beneficial for kidney health:  \n\n### Diet and Nutrition  \n- **Explore a lower-protein eating pattern:** A Mediterranean-style diet may fit well. Focus on plenty of vegetables, moderate grains, heart-healthy fats (like olive oil), and a good balance of lean protein from fish or poultry, but in smaller portions.  \n- **Be mindful of high-potassium foods:** Consider limiting items like bananas, potatoes, oranges, and spinach, and seek alternatives such as apples, berries, or cucumbers.  \n- **Reduce sodium intake:** Aim for fresh, whole foods and try to avoid highly salted processed snacks, canned goods, or restaurant meals where salt is added. Use herbs and spices to add flavor instead.  \n- **Stay hydrated smartly:** Drinking enough water throughout the day is great, but try to space it consistently for balance and avoid anything overloading.   \n\n### Physical Activity and Weight Support  \n- **Incorporate gentle movement:** Look into daily walks, yoga, or light exercises that feel good to you. Even small amounts of physical activity help with overall energy and weight goals.  \n- **Gradual weight goals:** With a BMI of 34, setting small, incremental goals to reduce weight can have significant benefits on your overall well-being. Focus on sustainable habits like meal preparation and portion awareness.  \n\n### Iron-Rich Options  \n- Low hemoglobin can sometimes benefit from more iron-rich foods. Consider choices like eggs, chicken, fish, fortified cereals, or leafy greens—but align this with your diet’s potassium considerations.   \n\n### Additional Suggestions  \n- **See a kidney specialist:** It’s important to stay on top of your kidney health. A specialist can help monitor and guide personalized approaches.  \n- **Stay aware of muscle cramps:** These might point toward an imbalance in electrolytes or hydration. Balancing hydration and considering electrolytes with a specialist's help can help here.  \n\n### Diabetes Considerations  \n- Since diabetes is part of your history, managing stable blood sugar levels is essential for overall health. Smaller, well-balanced meals throughout the day and closely monitoring carb intake may support this.  \n\nFocusing on these lifestyle adjustments and habits could work toward supporting kidney wellness and overall health.  \n\n**This is for general wellness guidance only.**  ",
+    "evaluation": {
+      "maxSimilarity": 0.6372023118020069,
+      "avgSimilarity": 0.6372023118020069,
+      "similarities": [
+        0.6372023118020069
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "CKD",
+      "BMI": 30,
+      "GFR": 52,
+      "SerumCreatinine": 1.6,
+      "SerumElectrolytesPotassium": 5.8,
+      "ACR": 42,
+      "cramps": 2,
+      "HemoglobinLevels": 11.5,
+      "comorbidities": "Obesity",
+      "allergies": "None",
+      "expectedRecommendation": "A kidney specialist visit is advisable. Eat a low-protein diet. Avoid potassium-rich items like bananas. Reduce salt intake and drink plenty of water. Be physically active and aim to lose weight. Consider increasing iron-rich foods. Stay hydrated and monitor electrolytes. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Based on the provided information, here are some wellness suggestions to support a healthier lifestyle and promote overall kidney wellness. These tips are designed to be easy to follow and align with your current health needs: \n\n1. **Visit a Kidney Specialist**  \n   It's really important to stay proactive about your kidney health. Connecting with a specialist can help support your overall wellness and guide you toward the best steps to take for the future.\n\n2. **Try a Low-Protein Diet**  \n   Consider incorporating elements of the Mediterranean diet into your meals. This diet emphasizes fresh vegetables, fruits, whole grains, and healthy fats like olive oil. Reducing large portions of protein-heavy foods could also be beneficial. Keep your meals balanced and simple.\n\n3. **Reduce High-Potassium Foods**  \n   Since potassium can be a concern, try to cut back on foods like bananas, oranges, potatoes, and spinach. Instead, opt for lower-potassium options such as apples, berries, cauliflower, and green beans.\n\n4. **Hydrate and Choose Low-Sodium Options**  \n   Aim to drink water consistently throughout the day to stay well-hydrated. Avoid salty snacks, canned soups, and processed foods, which can have high sodium content. Look for “low-sodium” or “no salt added” labels when grocery shopping.\n\n5. **Incorporate Regular Activity into Your Routine**  \n   Setting aside time for daily movement, like a 20-30 minute walk, yoga, or low-impact exercise, can help improve your overall well-being. Even small steps toward regular activity can make a big difference over time.\n\n6. **Focus on Healthy Weight Management**  \n   With a current BMI of 30, working toward gradual and realistic weight loss could support your wellness goals. Pair mindful eating with enjoyable physical activities to support a sustainable and positive lifestyle routine.\n\n7. **Iron-Rich Foods**  \n   Adding iron-rich foods, such as lean meats, beans, lentils, fortified cereals, and leafy greens (lower-potassium options like kale), can support your energy levels and wellness.\n\n8. **Monitor Muscle Cramps**  \n   Weekly muscle cramps could signal a need to monitor hydration levels and electrolytes. Regular water intake and balanced meals can help maintain an even state of hydration.\n\n9. **Check Electrolyte Levels Regularly**  \n   Regular check-ins with your healthcare provider are essential to monitor potassium, sodium, and other electrolytes, so you can adjust your intake accordingly.\n\nRemember, small, consistent choices can add up to meaningful progress. You’ve got this!\n\n**This is for general wellness guidance only.**",
+    "evaluation": {
+      "maxSimilarity": 0.6413357661067736,
+      "avgSimilarity": 0.6413357661067736,
+      "similarities": [
+        0.6413357661067736
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "No CKD",
+      "BMI": 26,
+      "GFR": 85,
+      "SerumCreatinine": 1,
+      "SerumElectrolytesPotassium": 4.1,
+      "ACR": 15,
+      "cramps": 0,
+      "HemoglobinLevels": 13.9,
+      "comorbidities": "None",
+      "allergies": "Dust",
+      "expectedRecommendation": "Stay hydrated and maintain a balanced diet. Regular yearly check-ups for kidney health are encouraged. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Based on the information you’ve provided, here are some general wellness suggestions to help maintain overall health and support kidney wellness:\n\n1. **Hydration**: Make it a habit to drink enough water throughout the day. Staying hydrated supports your body’s natural processes and helps keep things running smoothly. Aim for water as your primary beverage.\n\n2. **Balanced Diet**: Incorporate a variety of fresh, whole foods into your diet such as vegetables, fruits, whole grains, and healthy fats, as found in a Mediterranean-style diet. This can help with maintaining a healthy balance across all your nutrient needs.\n\n3. **Stay Active**: Regular physical activity not only boosts energy but also supports overall wellness. Consider incorporating daily walks, light strength training, or yoga to keep your body moving.\n\n4. **Monitor Weight**: With a BMI of 26, focusing on small lifestyle adjustments can help you gradually move toward a weight that feels optimal for you. Pair mindful eating with physical activity to achieve this balance over time.\n\n5. **Yearly Checks**: It’s great that your eGFR and overall health markers indicate no kidney concerns. However, scheduling a yearly kidney wellness check, including a review of eGFR and potassium levels, is a good preventive practice.\n\n6. **General Nutrition Awareness**: While there’s no current reason for concern, it’s a great idea to be mindful of food choices. Favor foods that are gentle on the body, limit overly heavy meals, and ensure you’re getting adequate iron and protein from balanced sources.\n\n7. **Muscle Cramps**: For your weekly muscle cramps, pay attention to hydration and stretch regularly to prevent tightness. If they persist, consider tracking when they occur and if certain foods, exercises, or routines might be contributing to them.\n\n8. **Minimize Sodium**: Aim to reduce your intake of processed and salty foods. Instead, use herbs and spices to flavor meals.\n\nLastly, don't forget that dust allergies can affect your daily wellness—so keeping your environment clean and free of irritants is key.\n\n**This is for general wellness guidance only.**",
+    "evaluation": {
+      "maxSimilarity": 0.6950087455982921,
+      "avgSimilarity": 0.6950087455982921,
+      "similarities": [
+        0.6950087455982921
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "CKD",
+      "BMI": 36,
+      "GFR": 42,
+      "SerumCreatinine": 2.1,
+      "SerumElectrolytesPotassium": 6.1,
+      "ACR": 65,
+      "cramps": 4,
+      "HemoglobinLevels": 9.8,
+      "comorbidities": "Diabetes, Hypertension",
+      "allergies": "None",
+      "expectedRecommendation": "Refer to a kidney care specialist. Eat less protein, choose diets like Mediterranean. Avoid high-potassium items such as potatoes and bananas. Drink water regularly and cut down on sodium. Start weight loss activities. Improve iron intake to manage anemia. Watch electrolyte levels closely. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Thank you for sharing your information. Here are some friendly wellness suggestions tailored to support areas that can complement kidney health:\n\n### **Nutrition and Eating Habits**\n1. **Shift towards a low-protein diet option:** The Mediterranean Diet can be a great place to start! It focuses on fresh vegetables, fruits, whole grains, and healthy fats like olive oil. Aim to pair this with smaller portions of protein sources like lean meats or plant-based options.  \n2. **Be mindful of potassium-rich foods:** High potassium levels can be challenging. Try reducing foods like bananas, oranges, potatoes, and tomatoes. Instead, explore lower-potassium options such as apples, berries, cauliflower, and green beans.  \n3. **Reduce sodium intake:** Skip salty snacks, canned soups, or processed foods with high salt content. Choose fresh ingredients and flavor your meals with herbs, spices, or lemon juice instead.  \n4. **Incorporate iron-rich options:** Low hemoglobin might suggest you need more iron-friendly foods. Include items like leafy greens (such as spinach), beans, lentils, and fortified cereals in your meals. Pair these with a source of vitamin C (like a slice of orange or some red bell peppers) to help your body absorb the iron.\n\n---\n\n### **Hydration and Electrolytes**\n5. **Stay hydrated consistently:** Aim for steady water intake throughout the day, in amounts that feel comfortable. Hydration helps your body stay balanced.  \n\n---\n\n### **Active Lifestyle Tips**\n6. **Introduce movement to your day:** Start with gentle exercises like walking, yoga, or swimming, even for 20–30 minutes a day. Regular activity can help manage weight and overall wellness.  \n7. **Set reasonable weight-loss goals:** With a BMI of 36, starting on a gradual, healthy weight-loss journey can not only improve your energy levels but also benefit long-term goals like managing blood pressure and feeling more comfortable.  \n\n---\n\n### **Other Wellness Reminders**\n8. **Address weekly muscle cramps:** Regular gentle stretching or using a warm compress during these moments may provide some relief. Keep track of this and share with a health professional if it’s bothering you.  \n9. **See a kidney specialist:** It’s important to connect with a kidney professional as soon as possible, especially to explore ways to better balance levels like potassium, manage your kidney health, and discuss personalized options for your goals and concerns. This is key to maintaining quality of life.  \n\n---\n\n### Gentle Encouragement\nYou’re already taking active steps towards wellness by reviewing and considering these habits—well done! You deserve to feel supported and confident in prioritizing your kidney health.  \n\n**This is for general wellness guidance only.**",
+    "evaluation": {
+      "maxSimilarity": 0.7279687968078791,
+      "avgSimilarity": 0.7279687968078791,
+      "similarities": [
+        0.7279687968078791
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "No CKD",
+      "BMI": 23,
+      "GFR": 92,
+      "SerumCreatinine": 0.85,
+      "SerumElectrolytesPotassium": 4,
+      "ACR": 8,
+      "cramps": 0,
+      "HemoglobinLevels": 14.2,
+      "comorbidities": "None",
+      "allergies": "Shellfish",
+      "expectedRecommendation": "No kidney concerns identified. Maintain healthy hydration and lifestyle. Continue regular annual screening. This is for general wellness guidance only."
+    },
+    "generatedRecs": "To support your overall wellness and keep your kidneys in good shape, here are a few lifestyle tips to consider:\n\n1. **Stay Hydrated**: Drinking enough water throughout the day helps keep your kidneys functioning well. Opt for water as your main choice, but feel free to mix in herbal teas or infused water for variety.\n\n2. **Keep an Eye on Sodium**: Try to limit salty snacks and processed foods. Opt for fresh ingredients and season with herbs and spices instead of table salt.\n\n3. **Check In Regularly**: Even though everything looks good right now, it’s a smart habit to have a yearly check-up to monitor kidney-related markers like eGFR, serum creatinine, and potassium.\n\n4. **Stay Physically Active**: Include regular physical activity, such as walking, yoga, or cycling, to maintain overall health and support your kidneys. Aim for at least 30 minutes a day.\n\n5. **Focus on a Balanced Diet**: Consider a Mediterranean-style diet rich in fresh vegetables, fruits, whole grains, healthy fats like olive oil, and lean protein sources (like chicken, eggs, or plant-based options) to keep your body well-nourished.\n\n6. **Prioritize a Restful Sleep Routine**: Quality sleep is essential for overall health. Aim for 7-9 hours per night and establish a consistent sleep schedule.\n\n7. **Manage Muscle Cramps**: If you experience weekly cramps, it could be worth evaluating your hydration or electrolyte levels. Incorporate stretching exercises and focus on staying well-hydrated.\n\nYour current health profile looks great, so maintaining these habits can be a proactive way to support your wellness.\n\nThis is for general wellness guidance only.",
+    "evaluation": {
+      "maxSimilarity": 0.5732484095762787,
+      "avgSimilarity": 0.5732484095762787,
+      "similarities": [
+        0.5732484095762787
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "CKD",
+      "BMI": 28,
+      "GFR": 58,
+      "SerumCreatinine": 1.7,
+      "SerumElectrolytesPotassium": 5.6,
+      "ACR": 38,
+      "cramps": 2,
+      "HemoglobinLevels": 11.3,
+      "comorbidities": "Pre-diabetes",
+      "allergies": "None",
+      "expectedRecommendation": "Consult a nephrologist. Suggest low-protein diet. Recommend limiting bananas and other potassium-heavy foods. Drink water and limit salt. Start regular exercise. Improve iron intake. Stay on top of electrolytes. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Based on the information you’ve shared, here are some lifestyle suggestions that may support your overall kidney wellness and help promote a balanced lifestyle:\n\n### Nutrition\n- **Low-Protein Focus**: Consider adopting a style of eating similar to a Mediterranean diet. Focus on plant-based foods, healthy fats like olive oil, and smaller portions of lean protein sources, such as fish or chicken.\n- **Potassium Awareness**: Since your potassium is high, aim to limit high-potassium foods like bananas, oranges, potatoes, and spinach. Instead, enjoy lower-potassium fruits and veggies like apples, berries, cucumbers, and green beans.\n- **Iron-Rich Choices**: Given your hemoglobin level, include iron-friendly foods in your meals, such as leafy greens (like kale), lentils, beans, and iron-fortified cereals.\n- **Reduce Sodium**: Cut back on processed foods and avoid adding salt to meals. Use herbs and spices for flavor instead.\n  \n### Hydration\n- Keep yourself well-hydrated, aiming to drink plenty of water throughout the day unless otherwise advised by a healthcare provider. Avoid sugary drinks and excessive caffeine.\n\n### Physical Activity and Weight\n- With a BMI of 28, working toward a moderate weight loss goal could be helpful for overall health. Start with gentle activities like brisk walking, yoga, or cycling. Aim for at least 30 minutes of movement most days of the week.\n- If you’re not already active, start slow and build up your physical activity gradually to avoid muscle strain.\n\n### Additional Tips\n- **Cramps**: Address potential muscle cramps by discussing your hydration and electrolyte balance with a professional. Hydration and balanced eating may help mitigate some cramping.\n- **Focus on Wellness Reviews**: Since your kidney health is currently affected, it’s very important to have regular check-ins with a kidney specialist to ensure you're staying on track with the best strategies for a healthier lifestyle.\n\nFinally, staying consistent with these habits and prioritizing wellness can help make a positive difference.\n\nThis is for general wellness guidance only.",
+    "evaluation": {
+      "maxSimilarity": 0.6428708139891159,
+      "avgSimilarity": 0.6428708139891159,
+      "similarities": [
+        0.6428708139891159
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "CKD",
+      "BMI": 33,
+      "GFR": 50,
+      "SerumCreatinine": 1.9,
+      "SerumElectrolytesPotassium": 5.5,
+      "ACR": 45,
+      "cramps": 3,
+      "HemoglobinLevels": 10.7,
+      "comorbidities": "Hypertension",
+      "allergies": "None",
+      "expectedRecommendation": "Recommend kidney specialist consultation. Advise on low-protein meal plan. Avoid high-potassium food choices. Promote hydration and minimize sodium intake. Include regular physical movement. Aim for weight control. Add iron sources to diet. Replenish fluids and track minerals. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Thank you for sharing your information. Here are some thoughtful lifestyle tips tailored to support kidney wellness. These suggestions are designed to help you feel your best day-to-day while promoting habits that align with overall kidney health:\n\n### Nutrition and Eating Habits\n1. **Focus on a Low-Protein Diet:** Consider incorporating Mediterranean-style meals with plenty of vegetables, whole grains, and healthy fats (like olive oil). Lean proteins like fish or skinless poultry can be included in moderation.\n   \n2. **Watch Potassium Levels:** High-potassium foods such as bananas, oranges, avocados, and potatoes are best reduced. Opt for lower-potassium alternatives like apples, berries, cherries, and cauliflower. \n\n3. **Stay Hydrated:** Aim to drink water consistently throughout the day unless otherwise advised. Staying properly hydrated supports kidney function.\n\n4. **Cut Back on Salt:** Excess sodium can strain the kidneys. Cook meals at home to control the salt content and use herbs and spices instead for flavor.\n\n5. **Iron-Rich Foods:** Include foods like leafy greens (spinach, kale), beans, and fortified cereals to support your energy levels and wellness.\n\n---\n\n### Physical Activity \n6. **Move More:** Consistent, light activity like walking, swimming, or yoga can be beneficial. These activities are low-impact but help with overall health. Aim for at least 20–30 minutes daily or whatever feels manageable to you.\n\n---\n\n### Weight Management \n7. **Set Small Goals:** With a BMI of 33, gradual weight loss can make a big difference in overall wellness. You might start with small changes, such as replacing sugary beverages with water and increasing physical movement.\n\n---\n\n### Stay Mindful of Your Wellness\n8. **Take Cramps Seriously:** Weekly muscle cramps may suggest an imbalance. Tracking when they occur and the potential causes (e.g., hydration, physical activity) can help you prevent them.\n\n9. **Partner with a Specialist:** Because your kidney function may need closer observation, visiting a kidney specialist is an important next step. They will offer insights on what additional adjustments might serve you best.\n\n---\n\nThese habits, paired with support from a healthcare provider, can help you stay on track and feel your best.\n\n**This is for general wellness guidance only.**",
+    "evaluation": {
+      "maxSimilarity": 0.7445144408156751,
+      "avgSimilarity": 0.7445144408156751,
+      "similarities": [
+        0.7445144408156751
+      ]
+    }
+  },
+  {
+    "profile": {
+      "diagnosis": "No CKD",
+      "BMI": 25,
+      "GFR": 88,
+      "SerumCreatinine": 1,
+      "SerumElectrolytesPotassium": 4.4,
+      "ACR": 12,
+      "cramps": 0,
+      "HemoglobinLevels": 13.6,
+      "comorbidities": "None",
+      "allergies": "Gluten",
+      "expectedRecommendation": "Healthy kidney status. Maintain balanced eating habits and good hydration. Schedule routine kidney assessments annually. This is for general wellness guidance only."
+    },
+    "generatedRecs": "Thank you for sharing your information! Based on the details provided and for general wellness, here are some tips to help support your overall health and well-being: \n\n1. **Stay Hydrated**: Drinking enough water daily is essential. Aim to sip water throughout the day to stay well-hydrated. Avoid sugary beverages like sodas and energy drinks.\n\n2. **Balanced Nutrition**: Focus on a varied, nutrient-rich diet such as the Mediterranean diet, which includes vegetables, fruits, lean proteins, healthy fats (like olive oil), and whole grains. Choose gluten-free options when needed to fit your dietary preferences.\n\n3. **Monitor Potassium**: Potassium levels are within range, but as a good practice, be mindful of high-potassium foods like bananas and potatoes. Instead, enjoy options like apples, berries, or zucchini.\n\n4. **Stay Active**: Incorporate regular physical activity that you enjoy, such as walking, swimming, or yoga. Staying active can help with overall fitness and maintaining a healthy weight.\n\n5. **Mind Your Sodium**: Pay attention to your sodium intake to support your kidneys and heart. Avoid highly processed and salty foods like chips, canned soups, and restaurant meals—opt for home-cooked meals if possible.\n\n6. **Include Iron-Rich Foods**: For an energy boost, include iron-rich, gluten-free foods in your diet, such as leafy greens (e.g., spinach), lentils, and quinoa.\n\n7. **Routine Check-Ups**: It's great to stay proactive. Consider conducting checks like your eGFR, potassium, and other health markers annually to monitor your kidney and overall health.\n\n8. **Cramps Tips**: If you experience weekly muscle cramps, staying hydrated and focusing on a balanced diet with sufficient electrolytes may help. Speak with a healthcare professional if they persist to explore the root cause.\n\nBy making small, consistent adjustments, you can build lasting, health-supportive habits.\n\nThis is for general wellness guidance only.",
+    "evaluation": {
+      "maxSimilarity": 0.47811190189949265,
+      "avgSimilarity": 0.47811190189949265,
+      "similarities": [
+        0.47811190189949265
+      ]
+    }
+  }
+]

@@ -9,8 +9,12 @@ import { isUserLoggedIn } from "../contexts/UserLoggedIn"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Routes, Route} from "react-router-dom"
+import DisplayProfile from "./Dashboard"
 
 export default function App() {
+
+    // state to store user context (handy for restricting access to certain parts
+    // of the web app
     const [userContext, setUserContext] = useState({username: ''})
 
     useEffect(() => {
@@ -27,8 +31,8 @@ export default function App() {
         }
     }
 
-
     return (
+        // provides user context to all components inside the app
         <isUserLoggedIn.Provider value={{userContext, setUserContext}}>
             <Navbar />
             <Routes>
@@ -37,6 +41,7 @@ export default function App() {
                 <Route path="/register" element={<SignUpForm/>}/>
                 <Route path="/diagnosis" element={<Diagnosis/>}/>
                 <Route path="/recommendations" element={<ShowRecommendations/>}/>
+                <Route path="/profile" element={<DisplayProfile/>}/>
                 
             </Routes>
             {/* {userContext.username ? <LandingPage /> : <SignInForm />} */}
