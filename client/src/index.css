@@ -395,14 +395,14 @@ hr {
 
 .additional-info {
     display: grid;
-    height: 300px;
+    height: 350px;
     margin-top: 130px;
 }
 
 .additional-info > .allergies {
     display: grid;
-
 }
+
 
 .additional-info > button {
     margin-top: 20px;

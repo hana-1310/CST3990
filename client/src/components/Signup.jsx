@@ -1,5 +1,6 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 export default function SignUpForm() {
 
     /**Initialising states for the form's input fields */
@@ -13,6 +14,7 @@ export default function SignUpForm() {
 
     const [userExists, setUserExists] = useState(false)
     const [errors, setErrors] = useState({})
+    const navigate = useNavigate()
 
     /**Function to oversee submission of sign up form 
      * and send the data to the API endpoint
@@ -27,13 +29,18 @@ export default function SignUpForm() {
 
         if (Object.keys(formErrors).length === 0) {
             
-            const BMI = weight / ((height / 100) ** 2)
+            let BMI_full = weight / ((height / 100) ** 2)
+            const BMI = Math.round(BMI_full)
 
             console.log('BMI: ', BMI)
             try {
                 const response = await axios.post('http://localhost:8080/database/register', 
                                                     {username, age, password, BMI, height, weight, cramps, itching})
                 console.log(response)
+                if (response.status === 200) {
+                    alert('Account creation was a success!')
+                    navigate('/login')
+                }
             } catch (err) {
                 console.log(err.response.data.message)
                 if (err.response && err.response.status === 500) {

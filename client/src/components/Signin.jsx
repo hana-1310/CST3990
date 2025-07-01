@@ -56,6 +56,7 @@ export default function SignInForm() {
                         onChange={event => setPassword(event.target.value)}
                         required
                     />
+                    {error && <p>{error}</p>}
                 </label>
                 <button type="submit">Sign In</button>
                 <hr />

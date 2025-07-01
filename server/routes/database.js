@@ -48,7 +48,7 @@ databaserouter.post('/register', async (req, res) => {
                 weight, cramps, itching, diagnosis, recommendation})
             await newUser.save()
             console.log("SERVER: User creation was a success")
-            return res.status(500).json({message:"User creation was a success"})
+            return res.status(200).json({message:"User creation was a success"})
         }
 
         

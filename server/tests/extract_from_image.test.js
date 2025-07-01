@@ -1,4 +1,4 @@
-const {fileValidation} = require('../routes/extract_from_image')
+const {fileValidation} = require('../routes/diagnosis')
 
 describe('fileValidation', () => {
     test('accepts a valid PDF file', () => {
