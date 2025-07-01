@@ -18,8 +18,8 @@ Follow these steps to set up the application locally:
 git clone https://github.com/hana-1310/CST3990
 
 ### 2. Install Dependencies
-cd server
-npm install
+cd server\\
+npm install\\
 pip install -r requirements.txt
 
 ### 3. Start Backend Server
