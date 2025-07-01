@@ -18,31 +18,31 @@ Follow these steps to set up the application locally:
 git clone https://github.com/hana-1310/CST3990
 
 ### 2. Install Dependencies
-cd server\\
-npm install\\
-pip install -r requirements.txt
+- cd server
+- npm install
+- pip install -r requirements.txt
 
 ### 3. Start Backend Server
-npm run dev
+- npm run dev
 
 ### 4. Run Python Microservices
 #### In a separate terminal window, run these 2 fastapi apps:
 
-cd server/microservices
-python extract_text.py
-python detect.py
+- cd server/microservices
+- python extract_text.py
+- python detect.py
 
 ### 5. Start Frontend Client
-# open new terminal
-npm run dev
+##### open new terminal
+- npm run dev
 
 
 ### TESTING 
-cd server
-npm test
+- cd server
+- npm test
 
 ### EVALUATION
-cd server/evaluation
-py embedding.py
-node evaluateRecs.js
-##### find results under results/ directory
+- cd server/evaluation
+- py embedding.py
+- node evaluateRecs.js
+##### you can find results under results/ directory
